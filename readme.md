@@ -1,6 +1,6 @@
 The Freddie Mercury Thermometer
 ===================
-Python code for reading temperature and playing audio depending on the temperature
+Python code for reading temperature and playing audio depending on the temperature.
 Audio lives in a subfolder called audio. I'm not uploading the audio copyright blah.
 
 #More Detail
