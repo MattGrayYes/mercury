@@ -1,19 +1,25 @@
 #!/usr/bin/env python
+# Matt Gray - Freddie Mercury Thermometer code.
+# Details at www.mattg.co.uk/projects/mercury
 
 import os
 import glob
 import time
 import RPi.GPIO as GPIO
  
+# Set up pin 22 for button input
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(22, GPIO.IN)
 
+# yes this is horrible. This enables the shizz to talk to the temperature sensor
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
+# Make sound output through jack instead of HDMI
 os.system('modprobe snd-bcm2835')
 os.system('amixer cset numid=3 1')
 
+#most of this nicked from http://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/software
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
